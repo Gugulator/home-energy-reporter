@@ -9,8 +9,55 @@
 - **Connects to Home Assistant:** Uses WebSocket API to authenticate and retrieve energy consumption data.
 - **Customizable Energy Plans:** Allows defining multiple energy plans with specific discount rates based on hours and days.
 - **Time Period Selection:** Generates reports for a specific month and year or for the current month by default.
-- **ASCII Bar Chart:** Visualizes hourly energy consumption with an ASCII-based bar chart.
 - **Cost Calculation:** Calculates the total energy cost before and after applying the best discount from the available energy plans.
+
+
+## Output Example
+
+```
+Energy consumption from 2024-07-01 to 2024-07-31
+Number of days: 31
+
+Hourly consumption (kWh):
+Hour |   kWh | Chart
+-------------------------------------------------------------
+00:00 | 53.71 | ███████████████████████████
+01:00 | 49.94 | █████████████████████████
+02:00 | 48.34 | ████████████████████████
+03:00 | 45.20 | ███████████████████████
+04:00 | 44.05 | ██████████████████████
+05:00 | 42.97 | ██████████████████████
+06:00 | 38.31 | ███████████████████
+07:00 | 43.15 | ██████████████████████
+08:00 | 46.57 | ███████████████████████
+09:00 | 60.06 | ██████████████████████████████
+10:00 | 79.73 | ████████████████████████████████████████
+11:00 | 78.90 | ████████████████████████████████████████
+12:00 | 79.20 | ████████████████████████████████████████
+13:00 | 86.95 | ████████████████████████████████████████████
+14:00 | 97.41 | ██████████████████████████████████████████████████
+15:00 | 92.21 | ███████████████████████████████████████████████
+16:00 | 91.63 | ███████████████████████████████████████████████
+17:00 | 73.41 | █████████████████████████████████████
+18:00 | 65.35 | █████████████████████████████████
+19:00 | 60.91 | ███████████████████████████████
+20:00 | 67.34 | ██████████████████████████████████
+21:00 | 70.01 | ███████████████████████████████████
+22:00 | 69.08 | ███████████████████████████████████
+23:00 | 64.42 | █████████████████████████████████
+
+Total energy consumption: 1548.856 kWh
+
+Discount per plan (NIS):
+Cellcom Flat: 47.24
+Cellcom Day: 55.46 (Best)
+Cellcom Family: 52.81
+Cellcom Night: 42.49
+
+Total cost before discount: 944.80 NIS
+Best discount applied: 55.46 NIS
+Total cost after best discount: 889.34 NIS
+```
 
 ## Requirements
 
@@ -100,38 +147,6 @@ The tool will output a detailed report in your terminal, including:
 3. Discount calculations for each defined energy plan.
 4. Best discount applied and the total cost after the discount.
 
-## Output Example
-
-```
-Energy consumption from 2024-07-01 to 2024-07-31
-Number of days: 31
-
-Hourly consumption (kWh):
-Hour |   kWh | Chart
--------------------------------------------------------------
-00:00 | 53.71 | ███████████████████████████
-01:00 | 49.94 | █████████████████████████
-...
-23:00 | 64.42 | █████████████████████████████████
-
-Total energy consumption: 1548.856 kWh
-
-Discount per plan (NIS):
-WeekendSaver: 47.24
-NightOwl: 55.46 (Best)
-
-Total cost before discount: 944.80 NIS
-Best discount applied: 55.46 NIS
-Total cost after best discount: 889.34 NIS
-```
-
-## Error Handling
-
-The tool includes basic error handling for scenarios such as missing environment variables, failed API requests, and data parsing errors. Errors are logged to the console.
-
-## Logging
-
-The tool uses Python's `logging` module to log information and errors. The logging level is set to `INFO` by default, meaning all informational messages and errors will be displayed.
 
 ## License
 
