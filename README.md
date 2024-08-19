@@ -79,7 +79,11 @@ cd home-energy-reporter
 
 ### Step 3: Set Up the Environment Variables
 
-Create a `.env` file in the project root and add the required environment variables (as shown above).
+Create a `.env` file in the project root and add the required environment variables.
+
+```bash
+mv .env.example .env
+```
 
 ## Environment Variables
 
