@@ -2,7 +2,54 @@
 
 ## Overview
 
-This project is a Python-based tool designed to generate a report on energy consumption using data from a Home Assistant instance. The tool connects to the Home Assistant API via WebSocket, retrieves energy consumption data for a specified period, and calculates potential discounts based on predefined energy plans. The output includes a detailed report of energy usage, discounts applicable, and the total cost after applying the best discount.
+**Home Energy Reporter** is a tool designed to help you better understand and optimize your energy consumption patterns using data from your Home Assistant setup. By analyzing your energy usage across different times of the day and days of the week, the tool identifies opportunities for savings based on predefined energy plans. It provides insights into your consumption behavior
+
+## Output Example
+
+```
+Energy consumption from 2024-07-01 to 2024-07-31
+Number of days: 31
+
+Hourly consumption (kWh):
+Hour |   kWh | Chart
+-------------------------------------------------------------
+00:00 | 53.71 | ███████████████████████████
+01:00 | 49.94 | █████████████████████████
+02:00 | 48.34 | ████████████████████████
+03:00 | 45.20 | ███████████████████████
+04:00 | 44.05 | ██████████████████████
+05:00 | 42.97 | ██████████████████████
+06:00 | 38.31 | ███████████████████
+07:00 | 43.15 | ██████████████████████
+08:00 | 46.57 | ███████████████████████
+09:00 | 60.06 | ██████████████████████████████
+10:00 | 79.73 | ████████████████████████████████████████
+11:00 | 78.90 | ████████████████████████████████████████
+12:00 | 79.20 | ████████████████████████████████████████
+13:00 | 86.95 | ████████████████████████████████████████████
+14:00 | 97.41 | ██████████████████████████████████████████████████
+15:00 | 92.21 | ███████████████████████████████████████████████
+16:00 | 91.63 | ███████████████████████████████████████████████
+17:00 | 73.41 | █████████████████████████████████████
+18:00 | 65.35 | █████████████████████████████████
+19:00 | 60.91 | ███████████████████████████████
+20:00 | 67.34 | ██████████████████████████████████
+21:00 | 70.01 | ███████████████████████████████████
+22:00 | 69.08 | ███████████████████████████████████
+23:00 | 64.42 | █████████████████████████████████
+
+Total energy consumption: 1548.856 kWh
+
+Discount per plan (NIS):
+Cellcom Flat: 47.24
+Cellcom Day: 55.46 (Best)
+Cellcom Family: 52.81
+Cellcom Night: 42.49
+
+Total cost before discount: 944.80 NIS
+Best discount applied: 55.46 NIS
+Total cost after best discount: 889.34 NIS
+```
 
 ## Features
 
