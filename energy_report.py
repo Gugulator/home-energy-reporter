@@ -103,10 +103,36 @@ def calculate_discount(consumption, plans, universal_tariff):
 
 def parse_plan(plan_str):
     name, hours, days, discount = plan_str.split('|')
-    hours = [int(h) for h in hours.split(',')]
-    days = days.split(',')
+    hours = parse_hour_range(hours)
+    days = parse_day_range(days)
     discount = float(discount)
     return EnergyPlan(name, hours, days, discount)
+
+def parse_day_range(day_str):
+    days_of_week = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+    days = []
+    for part in day_str.split(','):
+        if '-' in part:
+            start, end = part.split('-')
+            start_index = days_of_week.index(start)
+            end_index = days_of_week.index(end)
+            if start_index <= end_index:
+                days.extend(days_of_week[start_index:end_index+1])
+            else:
+                days.extend(days_of_week[start_index:] + days_of_week[:end_index+1])
+        else:
+            days.append(part)
+    return days
+
+def parse_hour_range(hour_str):
+    hours = []
+    for part in hour_str.split(','):
+        if '-' in part:
+            start, end = map(int, part.split('-'))
+            hours.extend(range(start, end + 1))
+        else:
+            hours.append(int(part))
+    return hours
 
 def plot_ascii_bar_chart(data, max_width=50):
     max_value = max(data.values())
@@ -127,7 +153,7 @@ async def main(month=None, year=None):
     ha_url = os.getenv('HA_URL')
     access_token = os.getenv('HA_ACCESS_TOKEN')
     sensor_ids = os.getenv('HA_SENSOR_IDS').split(',')
-    universal_tariff = float(os.getenv('UNIVERSAL_TARIFF', '0.61'))
+    universal_tariff = float(os.getenv('UNIVERSAL_TARIFF', '0.15'))  # Default to 0.15 NIS per kWh if not specified
 
     if not all([ha_url, access_token, sensor_ids]):
         logger.error("Missing required environment variables. Please check your .env file.")
@@ -208,7 +234,6 @@ async def main(month=None, year=None):
         best_discount_amount = best_discount[1]
         total_cost = total_consumption * universal_tariff - best_discount_amount
         
-        logger.info("")
         logger.info(f"Total cost before discount: {total_consumption * universal_tariff:.2f} NIS")
         logger.info(f"Best discount applied: {best_discount_amount:.2f} NIS")
         logger.info(f"Total cost after best discount: {total_cost:.2f} NIS")
