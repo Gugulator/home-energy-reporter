@@ -105,7 +105,7 @@ UNIVERSAL_TARIFF=0.61
 ENERGY_PLAN_1=Cellcom Flat|0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23|Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday|0.05
 ENERGY_PLAN_2=Cellcom Day|7,8,9,10,11,12,13,14,15,16|Sunday,Monday,Tuesday,Wednesday,Thursday|0.15
 ENERGY_PLAN_3=Cellcom Family|14,15,16,17,18,19|Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday|0.18
-ENERGY_PLAN_4=Cellcom Night|23,0,1,2,3,4,5,6|Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday|0.18
+ENERGY_PLAN_4=Cellcom Night|23,0,1,2,3,4,5,6|Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday|0.20
 ```
 
 ### Step 4: Install Required Dependencies
