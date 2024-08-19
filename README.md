@@ -59,17 +59,27 @@ Best discount applied: 55.46 NIS
 Total cost after best discount: 889.34 NIS
 ```
 
-## Requirements
+## Usage
 
-- Python 3.10+
-- `websockets` library
-- `dotenv` library
+### Step 1: Clone the Repository
 
-You can install the required libraries using pip:
+First, clone the repository from GitHub to your local machine:
 
 ```bash
-pip install websockets python-dotenv
+git clone https://github.com/YogevKr/home-energy-reporter.git
 ```
+
+### Step 2: Navigate to the Project Directory
+
+Move into the project directory:
+
+```bash
+cd home-energy-reporter
+```
+
+### Step 3: Set Up the Environment Variables
+
+Create a `.env` file in the project root and add the required environment variables (as shown above).
 
 ## Environment Variables
 
@@ -93,28 +103,6 @@ ENERGY_PLAN_2=Cellcom Day|7,8,9,10,11,12,13,14,15,16|Sunday,Monday,Tuesday,Wedne
 ENERGY_PLAN_3=Cellcom Family|14,15,16,17,18,19|Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday|0.18
 ENERGY_PLAN_4=Cellcom Night|23,0,1,2,3,4,5,6|Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday|0.18
 ```
-
-## Usage
-
-### Step 1: Clone the Repository
-
-First, clone the repository from GitHub to your local machine:
-
-```bash
-git clone https://github.com/YogevKr/home-energy-reporter.git
-```
-
-### Step 2: Navigate to the Project Directory
-
-Move into the project directory:
-
-```bash
-cd home-energy-reporter
-```
-
-### Step 3: Set Up the Environment Variables
-
-Create a `.env` file in the project root and add the required environment variables (as shown above).
 
 ### Step 4: Install Required Dependencies
 
