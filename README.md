@@ -99,7 +99,7 @@ ENERGY_PLAN_2=NightOwl|21,22,23,0,1,2,3,4|Monday,Tuesday,Wednesday,Thursday,Frid
 First, clone the repository from GitHub to your local machine:
 
 ```bash
-git clone https://github.com/your-username/home-energy-reporter.git
+git clone https://github.com/YogevKr/home-energy-reporter.git
 ```
 
 ### Step 2: Navigate to the Project Directory
