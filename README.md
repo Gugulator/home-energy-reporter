@@ -120,7 +120,7 @@ The tool requires several environment variables to function correctly. These var
 - **HA_URL:** URL of your Home Assistant instance (e.g., `ws://homeassistant.local:8123`). Type `wss` if using self signed certificate.
 - **HA_ACCESS_TOKEN:** Access token for authenticating with Home Assistant.
 - **HA_SENSOR_IDS:** Comma-separated list of sensor IDs to retrieve energy data from.
-- **UNIVERSAL_TARIFF:** The base tariff rate for energy consumption (in NIS per kWh). Default is `0.61`.
+- **UNIVERSAL_TARIFF:** The base tariff rate for energy consumption (in NIS per kWh). Default is `0.6145`.
 - **ENERGY_PLAN_X:** Energy plans in the format `PlanName|Hours|Days|Discount`. Replace `X` with an integer starting from 1 for each plan.
 
 ### Example `.env` file:
