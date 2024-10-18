@@ -130,11 +130,14 @@ SSL_VERIFY=False
 HA_URL=ws://homeassistant.local:8123
 HA_ACCESS_TOKEN=your_long_lived_access_token
 HA_SENSOR_IDS=sensor.shellyem3_x_channel_a_energy,sensor.shellyem3_x_channel_b_energy,sensor.shellyem3_x_channel_c_energy
+
 UNIVERSAL_TARIFF=0.6145
+
 ENERGY_PLAN_1=Cellcom Flat|0-23|Sunday-Saturday|0.05
 ENERGY_PLAN_2=Cellcom Day|7-16|Sunday-Thursday|0.15
 ENERGY_PLAN_3=Cellcom Family|14-19|Sunday-Saturday|0.18
 ENERGY_PLAN_4=Cellcom Night|23,0-6|Sunday-Saturday|0.20
+
 # Electra Power - Hi-Tech plan
 # 23:00 - 17:00, discount depends on the subscription year
 ENERGY_PLAN_5=Electra Hi-Tech Year 1|23,0-17|Sunday-Saturday|0.08
