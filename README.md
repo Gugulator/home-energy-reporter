@@ -84,7 +84,17 @@ Partner Work from Home: 16.82
 Cellcom Day: 15.20
 Total cost before discount: 431.99 NIS
 Best discount applied: 43.20 NIS
-Total cost after best discount: 388.79 NIS```
+Total cost after best discount: 388.79 NIS
+```
+# Usage
+
+### Step 1: Clone the Repository
+
+First, clone the repository from GitHub to your local machine:
+
+```bash
+git clone https://github.com/Gugulator/home-energy-reporter.git
+```
 
 ### Step 2: Navigate to the Project Directory
 
