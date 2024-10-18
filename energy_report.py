@@ -144,7 +144,7 @@ def plot_ascii_bar_chart(data, max_width=50):
     logger.info("-" * (11 + max_width))
 
     for hour in range(24):
-        value = data[hour]
+        value = data.get(hour, 0)
         bar_width = int(value * scale)
         bar = '█' * bar_width
         logger.info(f"{hour:02d}:00 | {value:5.2f} | {bar}")
@@ -223,19 +223,27 @@ async def main(month=None, year=None):
         logger.info(f"\nTotal energy consumption: {total_consumption:.3f} kWh")
 
         discounts = calculate_discount(consumption_by_day_hour, plans, universal_tariff)
-        logger.info("\nDiscount per plan (NIS):")
-        best_discount = max(discounts.items(), key=lambda x: x[1])
-        for plan_name, discount in discounts.items():
-            if plan_name == best_discount[0]:
-                logger.info(f"{plan_name}: {discount:.2f} (Best)")
-            else:
-                logger.info(f"{plan_name}: {discount:.2f}")
 
-        best_discount_amount = best_discount[1]
-        total_cost = total_consumption * universal_tariff - best_discount_amount
+        # Sorting discounts by descending
+        sorted_discounts = sorted(discounts.items(), key=lambda x: x[1], reverse=True)
+
+        # Output of 3 best tariffs
+        logger.info("\nTop 3 Best Discounts (NIS):")
+        for plan_name, discount in sorted_discounts[:3]:
+            logger.info(f"{plan_name}: {discount:.2f}")
+
+        # Output empty line as divider
+        logger.info("\nOther Discounts (NIS):")
+
+        # Output rest of tariffs
+        for plan_name, discount in sorted_discounts[3:]:
+            logger.info(f"{plan_name}: {discount:.2f}")
+
+        best_discount = sorted_discounts[0][1]
+        total_cost = total_consumption * universal_tariff - best_discount
         
         logger.info(f"Total cost before discount: {total_consumption * universal_tariff:.2f} NIS")
-        logger.info(f"Best discount applied: {best_discount_amount:.2f} NIS")
+        logger.info(f"Best discount applied: {best_discount:.2f} NIS")
         logger.info(f"Total cost after best discount: {total_cost:.2f} NIS")
         
     except Exception as e:
