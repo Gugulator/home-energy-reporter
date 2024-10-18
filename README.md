@@ -117,7 +117,7 @@ mv .env.example .env
 The tool requires several environment variables to function correctly. These variables should be stored in a `.env` file in the project root:
 
 - **SSL_VERIFY:** False - if not need to check SSL certificate, True - to enable check
-- **HA_URL:** URL of your Home Assistant instance (e.g., `ws://homeassistant.local:8123`). Type wss if using self signed certificate.
+- **HA_URL:** URL of your Home Assistant instance (e.g., `ws://homeassistant.local:8123`). Type `wss` if using self signed certificate.
 - **HA_ACCESS_TOKEN:** Access token for authenticating with Home Assistant.
 - **HA_SENSOR_IDS:** Comma-separated list of sensor IDs to retrieve energy data from.
 - **UNIVERSAL_TARIFF:** The base tariff rate for energy consumption (in NIS per kWh). Default is `0.61`.
