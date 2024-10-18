@@ -86,7 +86,8 @@ Total cost before discount: 431.99 NIS
 Best discount applied: 43.20 NIS
 Total cost after best discount: 388.79 NIS```
 
-## Usage
+
+# Usage
 
 ### Step 1: Clone the Repository
 
